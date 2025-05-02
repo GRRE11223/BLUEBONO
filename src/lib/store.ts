@@ -1,4 +1,4 @@
-import { User as UserType, Role, BrokerCompany, Permission, BrokerCompanyRef, Agent, Broker } from '@/types';
+import { User as UserType, Role, Broker, Permission, Agent } from '@/types';
 import { v4 as uuidv4 } from 'uuid';
 import { supabase } from './supabase';
 
@@ -145,7 +145,7 @@ export class BrokerStore {
       if (userStore) {
         const users = await userStore.list();
         for (const user of users) {
-          if (user.broker?.id === id) {
+          if (user.brokerCompany?.id === id) {
             await userStore.deleteUser(user.id);
           }
         }

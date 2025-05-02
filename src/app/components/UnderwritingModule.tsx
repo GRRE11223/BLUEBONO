@@ -280,7 +280,7 @@ export default function UnderwritingModule({
           <ul className="space-y-1">
             {request?.underwriting?.riskAnalysis?.factors?.map((factor, index) => (
               <li key={index} className="text-sm text-gray-700">
-                • {factor}
+                • {factor.name}
               </li>
             )) || (
               <li className="text-sm text-gray-500">No risk factors identified</li>

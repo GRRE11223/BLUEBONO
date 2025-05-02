@@ -301,7 +301,7 @@ export default function PostFundingModule({
                 </div>
 
                 {/* Document List */}
-                {request?.documents?.filter(doc => doc.category === selectedCategory).length > 0 ? (
+                {request?.documents && request.documents.filter(doc => doc.category === selectedCategory).length > 0 ? (
                   <div className="bg-white rounded-xl border border-gray-200">
                     <div className="divide-y divide-gray-100">
                       {request.documents

@@ -28,7 +28,7 @@ interface LoanRequest {
       };
     };
   };
-  progress: {
+  progress?: {
     borrower: number;
     escrow: number;
     title: number;

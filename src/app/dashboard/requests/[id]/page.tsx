@@ -197,10 +197,6 @@ export default function LoanRequestDetail() {
       id: Math.random().toString(36).substring(7),
       category,
       name: file.name,
-      fileName: file.name,
-      url: URL.createObjectURL(file),
-      type: file.type,
-      uploadedAt: new Date().toISOString(),
       status: 'pending',
       versions: [{
         id: Math.random().toString(36).substring(7),
@@ -211,7 +207,10 @@ export default function LoanRequestDetail() {
         size: file.size,
         type: file.type
       }],
-      comments: []
+      comments: [],
+      loanRequestId: request.id,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
     };
 
     const updatedRequest: LoanRequest = {
@@ -1067,7 +1066,7 @@ export default function LoanRequestDetail() {
                             </div>
                             <div>
                               <p className="text-sm font-medium text-gray-500 mb-1">Loan Amount</p>
-                              <p className="text-base font-medium text-gray-900">${request.loan.loanAmount.toLocaleString()}</p>
+                              <p className="text-base font-medium text-gray-900">${request.loanAmount.toLocaleString()}</p>
                             </div>
                             <div>
                               <p className="text-sm font-medium text-gray-500 mb-1">LTV</p>
@@ -1144,7 +1143,7 @@ export default function LoanRequestDetail() {
                         <div className="grid grid-cols-2 gap-6 bg-gray-50 rounded-xl p-6">
                           <div>
                             <p className="text-sm font-medium text-gray-500 mb-1">Originator</p>
-                            <p className="text-base font-medium text-gray-900">{request.loan?.originator || 'N/A'}</p>
+                            <p className="text-base font-medium text-gray-900">{request.loan?.originator?.name || 'N/A'}</p>
                           </div>
                           <div>
                             <p className="text-sm font-medium text-gray-500 mb-1">Created At</p>

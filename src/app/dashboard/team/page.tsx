@@ -818,13 +818,13 @@ export default function TeamManagement() {
       >
         <CardHeader className="flex flex-row items-center justify-between py-4">
           <div>
-            <CardTitle className="text-lg text-gray-900">{user.name}</CardTitle>
+            <CardTitle className="text-lg text-gray-900">{user.firstName + ' ' + user.lastName}</CardTitle>
             <div className="text-sm text-gray-600 mt-1">
               {user.email}
                 </div>
             </div>
           <div className="flex items-center gap-2">
-            <Badge variant="outline" className="bg-white/50 text-gray-700">{user.role}</Badge>
+            <Badge variant="outline" className="bg-white/50 text-gray-700">{user.role.name}</Badge>
             {user.status === 'pending' && (
               <Badge variant="warning" className="bg-yellow-500/10 text-yellow-700">Pending</Badge>
             )}
@@ -1035,15 +1035,13 @@ export default function TeamManagement() {
                   >
                     <CardHeader className="flex flex-row items-center justify-between py-6">
                       <div>
-                        <CardTitle className="text-xl text-gray-900">{user.name}</CardTitle>
+                        <CardTitle className="text-xl text-gray-900">{user.firstName + ' ' + user.lastName}</CardTitle>
                         <div className="text-gray-500 mt-1">
                           {user.email}
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 px-3 py-1 rounded-full">
-                          {user.role}
-                        </Badge>
+                        <Badge variant="outline" className="bg-white/50 text-gray-700">{user.role.name}</Badge>
                         {user.status === 'pending' && (
                           <Badge variant="warning" className="bg-yellow-100 text-yellow-700 border-yellow-200 px-3 py-1 rounded-full">
                             Pending

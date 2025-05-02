@@ -276,8 +276,8 @@ export default function BorrowerModule({
 
   const handlePreviewDocument = (document: Document) => {
     setSelectedDocument({
-      url: document.url,
-      fileName: document.fileName
+      url: document.versions[0].url,
+      fileName: document.versions[0].fileName
     });
   };
 
