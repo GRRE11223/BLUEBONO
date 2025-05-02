@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const user = await prisma.user.create({
       data: {
         email: invitation.email,
-        passwordHash,
+        password: passwordHash,
         firstName: '',  // These will be updated later
         lastName: '',
         roleId: invitation.roleId,
